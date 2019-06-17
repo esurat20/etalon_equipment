@@ -1,0 +1,40 @@
+<%= form_for @changeset, @action, fn f -> %>
+<%= if @changeset.action do %>
+<div class="alert alert-danger">
+    <p>Произошли ошибки во время создания нового оборудования</p>
+</div>
+<% end %>
+<div class="form-group">
+    <%= label f, :name, "Наименование", class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+</div>
+<div class="form-group">
+    <%= label f, :amount, "Количество", class: "control-label" %>
+    <%= number_input f, :amount, class: "form-control" %>
+    <%= error_tag f, :amount %>
+</div>
+<div class="form-group">
+    <%= label f, :count_type, "Еденица измерения", class: "control-label" %>
+    <%= text_input f, :count_type, class: "form-control" %>
+    <%= error_tag f, :count_type %>
+</div>
+<div class="form-group">
+    <%= label f, :cost, "Стоимость", class: "control-label" %>
+    <%= text_input f, :cost, class: "form-control" %>
+    <%= error_tag f, :cost %>
+</div>
+<div class="form-group">
+    <%= label f, :employee, "Работник", class: "control-label" %>
+    <%= select(f, :employee_id, Enum.map(@employees, &{&1.name, &1.id})) %>
+    <%= error_tag f, :employee %>
+</div>
+<div class="form-group">
+    <%= label f, :category, "Категория", class: "control-label" %>
+    <%= select(f, :category_id, Enum.map(@categories, &{&1.name, &1.id})) %>
+    <%= error_tag f, :category %>
+</div>
+<div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+</div>
+<% end %>

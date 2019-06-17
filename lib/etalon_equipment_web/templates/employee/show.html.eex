@@ -1,0 +1,18 @@
+<h2>Работник</h2>
+
+<ul>
+
+  <li>
+    <strong>Фио:</strong>
+    <%= @employee.name %>
+  </li>
+
+  <li>
+    <strong>Должность:</strong>
+    <%= @employee.position %>
+  </li>
+
+</ul>
+
+<span><%= link "Редактировать", to: employee_path(@conn, :edit, @employee) %></span>
+<span><%= link "Назад", to: employee_path(@conn, :index) %></span>

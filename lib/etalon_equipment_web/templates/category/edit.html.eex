@@ -1,0 +1,5 @@
+<h2>Редактировать категорию</h2>
+
+<%= render "form.html", Map.put(assigns, :action, category_path(@conn, :update, @category)) %>
+
+<span><%= link "Назад", to: category_path(@conn, :index) %></span>

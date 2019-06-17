@@ -1,0 +1,5 @@
+<h2>Новое оборудование</h2>
+<%= render "form.html", Map.put(assigns, :action, equipment_path(@conn, :create)) %>
+<br>
+<span>
+    <%= link "Назад", to: equipment_path(@conn, :index) %></span>

@@ -1,0 +1,32 @@
+<h2>Оборудование</h2>
+<ul>
+    <li>
+        <strong>Наименование:</strong>
+        <%= @equipment.name %>
+    </li>
+    <li>
+        <strong>Количество:</strong>
+        <%= @equipment.amount %>
+    </li>
+    <li>
+        <strong>Единица измерения:</strong>
+        <%= @equipment.count_type %>
+    </li>
+    <li>
+        <strong>Стоимость:</strong>
+        <%= @equipment.cost %>
+    </li>
+    <li>
+        <strong>Работник:</strong>
+        <%= @equipment.employee.name %>
+    </li>
+    <li>
+        <strong>Категория:</strong>
+        <%= @equipment.category.name %>
+    </li>
+</ul>
+<span>
+    <%= link "Редактировать", to: equipment_path(@conn, :edit, @equipment) %></span>
+<br>
+<span>
+    <%= link "Назад", to: equipment_path(@conn, :index) %></span>

@@ -1,0 +1,65 @@
+<h2>Оборудование</h2>
+<p>
+  <%= form_for @conn, equipment_path(@conn, :index), [as: :search, method: :get], fn f -> %>
+  <%= label(f, :employee_name, "Работник") %>
+  <br>
+  <%= select(f, :employee, entities_for_select(@employees), prompt: "Выбирите работника") %>
+  <br>
+  <%= label(f, :categorie_name, "Категория") %>
+  <br>
+  <%= select(f, :category, entities_for_select(@categories), prompt: "Выбирите категорию") %>
+  <br>
+  <br>
+  <%= submit("Фильтровать") %>
+  <br>
+  <%= link("Сбросить фильтры", to: equipment_path(@conn, :index)) %>
+  <% end %>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Наименование</th>
+      <th>Количество</th>
+      <th>Единица измерения</th>
+      <th>Стоимость</th>
+      <th>Работник</th>
+      <th>Категория</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for equipment <- @equipments do %>
+    <tr>
+      <td>
+        <%= equipment.name %>
+      </td>
+      <td>
+        <%= equipment.amount %>
+      </td>
+      <td>
+        <%= equipment.count_type %>
+      </td>
+      <td>
+        <%= equipment.cost %>
+      </td>
+      <td>
+        <%= equipment.employee.name %>
+      </td>
+      <td>
+        <%= equipment.category.name %>
+      </td>
+      <td class="text-right">
+        <span>
+          <%= link "Редактировать", to: equipment_path(@conn, :edit, equipment), class: "btn btn-default btn-xs" %></span>
+        <span>
+          <%= link "Удалить", to: equipment_path(@conn, :delete, equipment), method: :delete, data: [confirm: "Вы уверены?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<span>
+  <%= link "Новое оборудование", to: equipment_path(@conn, :new) %></span>
+<br>
+<span>
+  <%= link "Назад", to: page_path(@conn, :index) %></span>

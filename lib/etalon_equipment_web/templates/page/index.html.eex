@@ -1,0 +1,16 @@
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Разделы</h4>
+    <ul>
+      <li>
+        <%= link("Оборудование", to: equipment_path(@conn, :index)) %>
+      </li>
+      <li>
+        <%= link("Работники", to: employee_path(@conn, :index)) %>
+      </li>
+      <li>
+        <%= link("Категории", to: category_path(@conn, :index)) %>
+      </li>
+    </ul>
+  </div>
+</div>

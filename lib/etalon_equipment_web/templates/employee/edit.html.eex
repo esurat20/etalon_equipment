@@ -1,0 +1,5 @@
+<h2>Редактировать работника</h2>
+
+<%= render "form.html", Map.put(assigns, :action, employee_path(@conn, :update, @employee)) %>
+
+<span><%= link "Назад", to: employee_path(@conn, :index) %></span>

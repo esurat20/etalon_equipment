@@ -1,0 +1,13 @@
+<h2>Категория</h2>
+
+<ul>
+
+  <li>
+    <strong>Имя:</strong>
+    <%= @category.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Редактировать", to: category_path(@conn, :edit, @category) %></span>
+<span><%= link "Назад", to: category_path(@conn, :index) %></span>

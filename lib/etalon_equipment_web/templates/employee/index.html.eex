@@ -1,0 +1,29 @@
+<h2>Работники</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Фио</th>
+      <th>Должность</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for employee <- @employees do %>
+    <tr>
+      <td><%= employee.name %></td>
+      <td><%= employee.position %></td>
+
+      <td class="text-right">
+        <span><%= link "Редактировать", to: employee_path(@conn, :edit, employee), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Удалить", to: employee_path(@conn, :delete, employee), method: :delete, data: [confirm: "Вы уверены?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "Создать", to: employee_path(@conn, :new) %></span>
+<span><%= link "Назад", to: page_path(@conn, :index) %></span>
+
