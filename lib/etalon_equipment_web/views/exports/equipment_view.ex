@@ -31,9 +31,9 @@ defmodule EtalonEquipmentWeb.Exports.EquipmentView do
       to_string(equipment.amount),
       equipment.count_type,
       equipment.cost,
-      equipment.vendor,
       equipment.employee.name,
-      equipment.category.name
+      equipment.category.name,
+      equipment.vendor
     ]
   end
 end
