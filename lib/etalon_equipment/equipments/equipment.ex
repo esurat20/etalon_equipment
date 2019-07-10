@@ -6,10 +6,11 @@ defmodule EtalonEquipment.Equipments.Equipment do
   alias EtalonEquipment.Categories.Category
 
   schema "equipments" do
-    field(:amount, :integer)
+    field(:amount, :decimal)
     field(:name, :string)
     field(:count_type, :string)
     field(:cost, :string)
+    field(:vendor, :string)
     belongs_to(:employee, Employee)
     belongs_to(:category, Category)
 
@@ -19,7 +20,7 @@ defmodule EtalonEquipment.Equipments.Equipment do
   @doc false
   def changeset(equipment, attrs) do
     equipment
-    |> cast(attrs, [:name, :amount, :count_type, :cost, :employee_id, :category_id])
-    |> validate_required([:name, :amount, :count_type, :cost, :employee_id, :category_id])
+    |> cast(attrs, [:name, :amount, :count_type, :cost, :employee_id, :category_id, :vendor])
+    |> validate_required([:name, :amount, :count_type, :employee_id, :category_id])
   end
 end

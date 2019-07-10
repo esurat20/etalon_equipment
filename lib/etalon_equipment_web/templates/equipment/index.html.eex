@@ -24,6 +24,7 @@
       <th>Стоимость</th>
       <th>Работник</th>
       <th>Категория</th>
+      <th>Поставщик</th>
       <th></th>
     </tr>
   </thead>
@@ -47,6 +48,9 @@
       </td>
       <td>
         <%= equipment.category.name %>
+      </td>
+      <td>
+        <%= equipment.vendor %>
       </td>
       <td class="text-right">
         <span>
