@@ -23,6 +23,11 @@ defmodule EtalonEquipmentWeb.Router do
     resources("/equipments", EquipmentController)
   end
 
+  scope "/exports", as: :exports, alias: EtalonEquipmentWeb.Exports do
+    pipe_through(:browser)
+    resources("/equipments", EquipmentController, only: [:index])
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", EtalonEquipmentWeb do
   #   pipe_through :api

@@ -14,6 +14,15 @@
   <br>
   <%= link("Сбросить фильтры", to: equipment_path(@conn, :index)) %>
   <% end %>
+  <%= link "Export XLS", to: exports_equipment_path(@conn, :index, @conn.params), class: "btn btn-default" %>
+  <br>
+  <br>
+  <span>
+    <%= link "Новое оборудование", to: equipment_path(@conn, :new) %></span>
+  <br>
+  <span>
+    <%= link "Назад", to: page_path(@conn, :index) %>
+  </span>
 </p>
 <table class="table">
   <thead>
@@ -62,8 +71,3 @@
     <% end %>
   </tbody>
 </table>
-<span>
-  <%= link "Новое оборудование", to: equipment_path(@conn, :new) %></span>
-<br>
-<span>
-  <%= link "Назад", to: page_path(@conn, :index) %></span>
